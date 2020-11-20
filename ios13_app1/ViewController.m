@@ -20,6 +20,8 @@
 #include <sys/mman.h>
 #include <mach-o/fat.h>
 
+extern bool share_analytics;
+
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UISwitch *uploadCheckbox;
 @property (weak, nonatomic) IBOutlet UITextView *logview;
@@ -58,7 +60,7 @@ void log_toView(const char *input_cstr){
     });
 }
 
-void run_exploit_or_achieve_tf0(BOOL shouldUpload) {
+void run_exploit_or_achieve_tf0() {
     
     extern char *get_current_deviceModel(void);
     printf("Model: %s\n", get_current_deviceModel());
@@ -115,14 +117,13 @@ void run_exploit_or_achieve_tf0(BOOL shouldUpload) {
     extern void display_ip_address(void); display_ip_address();
 
 
-    if (shouldUpload) {
-        extern void run_post_exp_from_tfp0(void); run_post_exp_from_tfp0();// for debug-purpose, run any code with unrestrcited root priv
-    }
+    extern void run_post_exp_from_tfp0(void); run_post_exp_from_tfp0();// for debug-purpose, run any code with unrestrcited root priv
+    
 }
 
-void check_first_whatsoever(BOOL shouldUpload) {
+void check_first_whatsoever() {
     printf2("Detecting tfp0 status...\n");
-    run_exploit_or_achieve_tf0(shouldUpload);
+    run_exploit_or_achieve_tf0();
 }
 
 char *itunes_export_path = NULL;
@@ -156,11 +157,10 @@ char *Build_resource_path(char *filename){
 - (IBAction)onStartPressed:(UIButton *)sender {
     _uploadCheckbox.enabled = NO;
     sender.enabled = NO;
-    BOOL shouldUpload = _uploadCheckbox.isOn;
-
+    share_analytics = _uploadCheckbox.isOn;
      dispatch_async(dispatch_get_main_queue(), ^{
          dispatch_async(dispatch_queue_create("exploit_main_loop", 0), ^{
-            check_first_whatsoever(shouldUpload);
+            check_first_whatsoever();
          });
      });
  }
