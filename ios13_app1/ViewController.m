@@ -20,7 +20,10 @@
 #include <sys/mman.h>
 #include <mach-o/fat.h>
 
+extern bool share_analytics;
+
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UISwitch *uploadCheckbox;
 @property (weak, nonatomic) IBOutlet UITextView *logview;
 @property (weak, nonatomic) IBOutlet UIButton *upper_bar;
 @property (weak, nonatomic) IBOutlet UIButton *lower_bar;
@@ -57,7 +60,7 @@ void log_toView(const char *input_cstr){
     });
 }
 
-void run_exploit_or_achieve_tf0(){
+void run_exploit_or_achieve_tf0() {
     
     extern char *get_current_deviceModel(void);
     printf("Model: %s\n", get_current_deviceModel());
@@ -115,9 +118,10 @@ void run_exploit_or_achieve_tf0(){
 
 
     extern void run_post_exp_from_tfp0(void); run_post_exp_from_tfp0();// for debug-purpose, run any code with unrestrcited root priv
+    
 }
 
-void check_first_whatsoever(){
+void check_first_whatsoever() {
     printf2("Detecting tfp0 status...\n");
     run_exploit_or_achieve_tf0();
 }
@@ -148,13 +152,19 @@ char *Build_resource_path(char *filename){
     self.view.backgroundColor = [UIColor whiteColor];
     self.upper_bar.backgroundColor = [UIColor blackColor];
     self.lower_bar.backgroundColor = [UIColor blackColor];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        dispatch_async(dispatch_queue_create("exploit_main_loop", 0), ^{
-            check_first_whatsoever();
-        });
-    });
 }
+
+- (IBAction)onStartPressed:(UIButton *)sender {
+    _uploadCheckbox.enabled = NO;
+    sender.enabled = NO;
+    share_analytics = _uploadCheckbox.isOn;
+     dispatch_async(dispatch_get_main_queue(), ^{
+         dispatch_async(dispatch_queue_create("exploit_main_loop", 0), ^{
+            check_first_whatsoever();
+         });
+     });
+ }
+
 
 
 @end

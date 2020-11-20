@@ -16,33 +16,74 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tnj-nD-Jra">
-                                <rect key="frame" x="0.0" y="139" width="414" height="375"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h94-ft-pCU">
+                                <rect key="frame" x="190" y="225.66666666666666" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="onStartPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OEU-De-Z1V"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="INA-AW-JAr">
+                                <rect key="frame" x="182.66666666666666" y="113.66666666666669" width="51" height="31"/>
+                            </switch>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Tnj-nD-Jra">
+                                <rect key="frame" x="0.0" y="265.66666666666669" width="414" height="375.00000000000006"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Tnj-nD-Jra" secondAttribute="height" multiplier="138:125" id="tgX-dQ-b0q"/>
+                                </constraints>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6i4-ck-7sI">
-                                <rect key="frame" x="-20" y="139" width="466" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6i4-ck-7sI">
+                                <rect key="frame" x="0.0" y="264.66666666666669" width="414" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.10000000000000001"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Hec-XP-l8N"/>
+                                </constraints>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uw3-Pq-12J">
-                                <rect key="frame" x="-35" y="512" width="496" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uw3-Pq-12J">
+                                <rect key="frame" x="0.0" y="640.66666666666663" width="414" height="1"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.10000000000000001"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="xF5-S1-ow4"/>
+                                </constraints>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I’d like to help improve the exploit stability, find attacks in the wild , and develop new LPEs by sharing device logs." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xIK-xi-QVT">
+                                <rect key="frame" x="20.666666666666657" y="154.66666666666666" width="372.66666666666674" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Tnj-nD-Jra" firstAttribute="width" secondItem="6i4-ck-7sI" secondAttribute="width" id="17S-m2-QUk"/>
+                            <constraint firstItem="INA-AW-JAr" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="7aN-Ma-y8W"/>
+                            <constraint firstItem="xIK-xi-QVT" firstAttribute="top" secondItem="INA-AW-JAr" secondAttribute="bottom" constant="10" id="837-wD-XM4"/>
+                            <constraint firstItem="xIK-xi-QVT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="DC1-4R-Hcd"/>
+                            <constraint firstItem="Uw3-Pq-12J" firstAttribute="top" secondItem="Tnj-nD-Jra" secondAttribute="bottom" id="IIK-uX-ffY"/>
+                            <constraint firstItem="Tnj-nD-Jra" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Tjk-6U-XTb"/>
+                            <constraint firstItem="h94-ft-pCU" firstAttribute="top" secondItem="xIK-xi-QVT" secondAttribute="bottom" constant="10" id="aCw-Af-VjO"/>
+                            <constraint firstItem="xIK-xi-QVT" firstAttribute="centerX" secondItem="h94-ft-pCU" secondAttribute="centerX" id="bzh-WU-mck"/>
+                            <constraint firstItem="h94-ft-pCU" firstAttribute="centerX" secondItem="Tnj-nD-Jra" secondAttribute="centerX" id="fK2-Vv-wKI"/>
+                            <constraint firstItem="Tnj-nD-Jra" firstAttribute="centerX" secondItem="6i4-ck-7sI" secondAttribute="centerX" id="koL-p7-qdf"/>
+                            <constraint firstItem="Tnj-nD-Jra" firstAttribute="top" secondItem="6i4-ck-7sI" secondAttribute="bottom" id="sxW-mK-6CO"/>
+                            <constraint firstItem="Tnj-nD-Jra" firstAttribute="width" secondItem="Uw3-Pq-12J" secondAttribute="width" id="v6p-R3-XaB"/>
+                            <constraint firstItem="Tnj-nD-Jra" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="vjS-ck-ssz"/>
+                            <constraint firstItem="Tnj-nD-Jra" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="wn6-Pf-bNe"/>
+                            <constraint firstItem="Tnj-nD-Jra" firstAttribute="top" secondItem="h94-ft-pCU" secondAttribute="bottom" constant="10" id="xiF-B9-Opr"/>
+                            <constraint firstItem="Tnj-nD-Jra" firstAttribute="centerX" secondItem="Uw3-Pq-12J" secondAttribute="centerX" id="yJh-Nk-y9a"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="logview" destination="Tnj-nD-Jra" id="cSf-Tj-uYb"/>
                         <outlet property="lower_bar" destination="Uw3-Pq-12J" id="YER-E4-HKk"/>
+                        <outlet property="uploadCheckbox" destination="INA-AW-JAr" id="DUX-5d-aPC"/>
                         <outlet property="upper_bar" destination="6i4-ck-7sI" id="rra-mE-XIr"/>
                     </connections>
                 </viewController>
